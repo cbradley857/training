@@ -20,7 +20,6 @@ public class Query {
 		try {
 			s.execute("use "+string+";");
 		} catch (SQLException e1) {
-			e1.printStackTrace();
 		}
 	}
 
@@ -44,10 +43,12 @@ public class Query {
 		ResultSet r;
 		Employee emp= new Employee();
 		try {
-			r = s.executeQuery("select * from employee where id = " + askForId);
+			r = s.executeQuery("select * from employee where id = " + askForId + ";");
+			r.next();
 			emp = new Employee(r.getInt(1), r.getString(2), r.getFloat(3));
 		} catch (SQLException e) {
 			System.out.println("*No employee with that ID*");
+			return null;
 		}
 		return emp;
 	}

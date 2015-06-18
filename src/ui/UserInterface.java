@@ -14,15 +14,16 @@ public class UserInterface {
 	public UserInterface() {
 		in = new Scanner(System.in);
 	}
-	
-//	public void logIn()
-//	{		
-//		System.out.println("Ple");	
-//	}
+
+	// public void logIn()
+	// {
+	// System.out.println("Ple");
+	// }
 
 	public String showOptions() {
 		System.out.println("Pick Option:");
-		System.out.println("[0] List Employees, [1] List Employee with given ID");
+		System.out
+				.println("[0] List Employees, [1] List Employee with given ID");
 		String s = in.next();
 		if (s.equals("0") || s.equals("1")) {
 			return s;
@@ -38,13 +39,29 @@ public class UserInterface {
 	}
 
 	public void printEmployee(Employee e) {
-		System.out.println("EmpId: " + e.getNumber() + ", Employee Name: "
-				+ e.getName() + ", Employee Salary: " + e.getSalary());
+		if (e != null) {
+			System.out.println("EmpId: " + e.getNumber() + ", Employee Name: "
+					+ e.getName() + ", Employee Salary: " + e.getSalary());
+		}
 	}
 
 	public void printEmployees(ArrayList<Employee> e) {
 		for (Employee emp : e) {
 			printEmployee(emp);
+		}
+	}
+
+	public boolean doAgain() {
+		System.out.println("Would you like to run another query?");
+		System.out.println("[y] = Yes, [n] = No");
+		String s = in.next();
+		if (s.equals("y")) {
+			return true;
+		} else if (s.endsWith("n")) {
+			return false;
+		} else {
+			System.out.println("Input not recognised");
+			return doAgain();
 		}
 	}
 }
