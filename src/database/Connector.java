@@ -31,69 +31,7 @@ public class Connector {
 		return null;
 	}
 	
-	public static ArrayList<Employee> createDatabase()
-	{
-		Statement s = getConnection();
-//		try {
-//			s.execute("drop database staff");
-//		} catch (SQLException e1) {
-//			// TODO Auto-generated catch block
-//			e1.printStackTrace();
-//		}
-//		try {
-//			s.execute("source Source.sql;");
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		try {
-//			s.execute("source Inserts.sql;");
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
-		ArrayList<Employee> result = new ArrayList<Employee>();
-		try {
-			s.execute("use staff;");
-		} catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try {
-			ResultSet results = s.executeQuery("select * from employee");
-			while(results.next())
-			{
-				try{
-					int newId = Integer.parseInt(results.getString(1));
-					String newName = results.getString(2);
-					float newSalary = Float.parseFloat(results.getString(3));
-					
-					result.add(new Employee(newId, newName, newSalary));
-					
-				}catch(NumberFormatException e)
-				{
-					continue;
-				}
-				
-			}
-			
-			return result;
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return null;
-	}
 	
-	public void getUserDetails(int id)
-	{
-		Statement s = getConnection();
-		
-		String query = "select * from employee where id" + id;
-		ResultSet results = s.executeQuery(query);
-		
-	}
 
 }
 
