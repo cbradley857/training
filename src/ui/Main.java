@@ -1,9 +1,10 @@
 package ui;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import database.Connector;
+import employee_stuff.Employee;
 
 public class Main {
 
@@ -11,7 +12,7 @@ public class Main {
 	{
 //		EmployeeManager em = new EmployeeManager();
 //		em.MainMenu();
-		ResultSet r = Connector.createDatabase();
+		ArrayList<Employee> r = Connector.createDatabase();
 		try {
 			while (r.next())
 			{

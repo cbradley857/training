@@ -4,8 +4,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import com.mysql.jdbc.Connection;
+
+import employee_stuff.Employee;
 
 public class Connector {
 
@@ -28,7 +31,7 @@ public class Connector {
 		return null;
 	}
 	
-	public static ResultSet createDatabase()
+	public static ArrayList<Employee> createDatabase()
 	{
 		Statement s = getConnection();
 //		try {
@@ -49,6 +52,8 @@ public class Connector {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
+		
+		ArrayList<Employee> result = new ArrayList<Employee>();
 		try {
 			s.execute("use staff;");
 		} catch (SQLException e1) {
@@ -56,7 +61,13 @@ public class Connector {
 			e1.printStackTrace();
 		}
 		try {
-			return s.executeQuery("select * from employee");
+			ResultSet results = s.executeQuery("select * from employee");
+			while(results.next())
+			{
+				int idNumber;
+				String employee;
+				result.add(new Employee(r.getInt(0));
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
