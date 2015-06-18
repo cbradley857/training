@@ -13,12 +13,9 @@ public class UserInterface {
 
 	public UserInterface() {
 		in = new Scanner(System.in);
+//		this.getUsername();
+//		this.getPassword();
 	}
-
-	// public void logIn()
-	// {
-	// System.out.println("Ple");
-	// }
 
 	public String showOptions() {
 		System.out.println("Pick Option:");
@@ -55,13 +52,35 @@ public class UserInterface {
 		System.out.println("Would you like to run another query?");
 		System.out.println("[y] = Yes, [n] = No");
 		String s = in.next();
-		if (s.equals("y")) {
+		if (s.equals("y") || s.equals("Y")) {
 			return true;
-		} else if (s.endsWith("n")) {
+		} else if (s.equals("n") || s.equals("N")) {
 			return false;
 		} else {
 			System.out.println("Input not recognised");
 			return doAgain();
 		}
+	}
+	public void getUsername()
+	{
+		System.out.println("Please enter username:");
+		setUserName(in.next());
+	}
+	public void getPassword()
+	{
+		System.out.println("Please enter password:");
+		password = in.next();
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+	public String getPasswd()
+	{
+		return password;
+	}
+
+	private void setUserName(String userName) {
+		this.userName = userName;
 	}
 }

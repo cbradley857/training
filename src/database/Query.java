@@ -11,8 +11,8 @@ public class Query {
 
 	private Statement s;
 
-	public Query() {
-		s = Connector.getConnection();
+	public Query(String u, String p) {
+		s = Connector.getConnection(u,p);
 		useDatabase("staff");
 	}
 
@@ -34,7 +34,6 @@ public class Query {
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		return array;
 	}

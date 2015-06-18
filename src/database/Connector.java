@@ -8,7 +8,7 @@ import com.mysql.jdbc.Connection;
 
 public class Connector {
 
-	public static Statement getConnection()
+	public static Statement getConnection(String u, String p)
 	{
 		try {
 			Class driver = Class.forName("com.mysql.jdbc.Driver");
@@ -21,8 +21,7 @@ public class Connector {
 					"jdbc:mysql://localhost/world", "root", "My5ql");
 			return c.createStatement();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Username and/or Password not recognised");
 		}
 		return null;
 	}

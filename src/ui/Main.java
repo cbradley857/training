@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		UserInterface ui = new UserInterface();
-		Query q = new Query();
+		Query q = new Query(ui.getUserName(), ui.getPasswd());
 		boolean b = true;
 		while (b == true) {
 			if (ui.showOptions().equals("0")) {
