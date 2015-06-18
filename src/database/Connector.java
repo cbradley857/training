@@ -64,10 +64,21 @@ public class Connector {
 			ResultSet results = s.executeQuery("select * from employee");
 			while(results.next())
 			{
-				int idNumber;
-				String employee;
-				result.add(new Employee(r.getInt(0));
+				try{
+					int newId = Integer.parseInt(results.getString(1));
+					String newName = results.getString(2);
+					float newSalary = Float.parseFloat(results.getString(3));
+					
+					result.add(new Employee(newId, newName, newSalary));
+					
+				}catch(Exception e)
+				{
+					//TODO: Make into actual exception type
+				}
+				
 			}
+			
+			return result;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

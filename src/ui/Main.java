@@ -13,14 +13,15 @@ public class Main {
 //		EmployeeManager em = new EmployeeManager();
 //		em.MainMenu();
 		ArrayList<Employee> r = Connector.createDatabase();
-		try {
-			while (r.next())
+			/*while (r.next())
 			{
 				System.out.println("EmpId: " + r.getString(1) + ", Employee Name: " + r.getString(2) + ", Employee Salary: " + r.getString(3));
+			}*/
+			
+			for(Employee e : r)
+			{
+				System.out.println(e.toString());
 			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 }
