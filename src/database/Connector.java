@@ -22,7 +22,7 @@ public class Connector {
 		}
 		try {
 			Connection c = (Connection) DriverManager.getConnection(
-					"jdbc:mysql://localhost/world", "root", "kainos");
+					"jdbc:mysql://localhost/world", "root", "My5ql");
 			return c.createStatement();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -30,8 +30,5 @@ public class Connector {
 		}
 		return null;
 	}
-	
-	
-
 }
 

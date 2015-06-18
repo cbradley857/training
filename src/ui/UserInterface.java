@@ -8,17 +8,23 @@ import employee_stuff.Employee;
 public class UserInterface {
 
 	private Scanner in;
+	private String userName;
+	private String password;
 
 	public UserInterface() {
 		in = new Scanner(System.in);
 	}
+	
+//	public void logIn()
+//	{		
+//		System.out.println("Ple");	
+//	}
 
 	public String showOptions() {
 		System.out.println("Pick Option:");
-		System.out
-				.println("[0] List Employees, [1] List Employee with given ID");
+		System.out.println("[0] List Employees, [1] List Employee with given ID");
 		String s = in.next();
-		if (s == "0" || s == "1") {
+		if (s.equals("0") || s.equals("1")) {
 			return s;
 		} else {
 			System.out.println("Input not recognised");
