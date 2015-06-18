@@ -51,7 +51,6 @@ public class Connector {
 //		}
 		try {
 			s.execute("use staff;");
-//			s.execute("insert into employee values(1, 'john donn' , 50000.00);");
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
