@@ -14,7 +14,7 @@ public class Main {
 		if (ui.showOptions() == "0") {
 			ui.printEmployees(q.getAllEmployees());
 		} else {
-			// select emp with id ui.askForId();
+			ui.printEmployee(q.getEmployeeWithID(ui.askForId()));
 		}
 		// EmployeeManager em = new EmployeeManager();
 		// em.MainMenu();
