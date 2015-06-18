@@ -3,7 +3,7 @@ package database;
 import com.mysql.jdbc.Connection;
 import java.sql.Statement;
 
-public class Querys {
+public class Query {
 
 //	private Statement s;
 //
