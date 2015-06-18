@@ -71,9 +71,9 @@ public class Connector {
 					
 					result.add(new Employee(newId, newName, newSalary));
 					
-				}catch(Exception e)
+				}catch(NumberFormatException e)
 				{
-					//TODO: Make into actual exception type
+					continue;
 				}
 				
 			}
@@ -84,6 +84,15 @@ public class Connector {
 			e.printStackTrace();
 		}
 		return null;
+	}
+	
+	public void getUserDetails(int id)
+	{
+		Statement s = getConnection();
+		
+		String query = "select * from employee where id" + id;
+		ResultSet results = s.executeQuery(query);
+		
 	}
 
 }
